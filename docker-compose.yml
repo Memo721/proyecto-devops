@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  web:
+
+    image: nginx:latest
+
+    container_name: proyecto-devops
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - .:/usr/share/nginx/html
