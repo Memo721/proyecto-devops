@@ -1,31 +1,42 @@
-
 services:
 
   web:
     image: nginx:latest
     container_name: proyecto-devops
-
     ports:
       - "80:80"
-
     volumes:
       - ./:/usr/share/nginx/html
+    depends_on:
+      - mysql
 
   prometheus:
     image: prom/prometheus
-
     container_name: prometheus
-
     ports:
       - "9090:9090"
-
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana
-
     container_name: grafana
-
     ports:
       - "3000:3000"
+
+  mysql:
+    image: mysql:8
+    container_name: mysql-devops
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: devopsdb
+      MYSQL_USER: devopsuser
+      MYSQL_PASSWORD: devops123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
