@@ -1,3 +1,4 @@
+
 name: Deploy DevOps Project
 
 on:
@@ -6,15 +7,28 @@ on:
       - main
 
 jobs:
-
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
-    - name: Clonar repositorio
-      uses: actions/checkout@v4
+      - name: Validar archivos
+        run: |
+          test -f index.html
+          test -f Dockerfile
+          test -f docker-compose.yml
+          echo "Archivos validados correctamente"
 
-    - name: Mensaje CI/CD
-      run: echo "Pipeline ejecutado correctamente"
+      - name: Desplegar en AWS EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/proyecto-devops
+            git pull origin main
+            sudo docker compose down
+            sudo docker compose up -d --build
