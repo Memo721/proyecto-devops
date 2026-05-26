@@ -2,59 +2,91 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Proyecto DevOps</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Proyecto DevOps</title>
 
-        body{
-            background:#0f172a;
-            color:white;
-            font-family:Arial;
-            text-align:center;
-            padding-top:100px;
-        }
+<style>
 
-        .contenedor{
-            background:#1e293b;
-            width:600px;
-            margin:auto;
-            padding:40px;
-            border-radius:20px;
-            box-shadow:0 0 20px rgba(0,0,0,0.5);
-        }
+body{
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    font-family:Arial,sans-serif;
+    color:white;
+    text-align:center;
+}
 
-        h1{
-            color:#38bdf8;
-        }
+.container{
+    margin-top:100px;
+}
 
-        p{
-            font-size:20px;
-        }
+h1{
+    font-size:60px;
+    color:#38bdf8;
+    margin-bottom:10px;
+}
 
-    </style>
+h2{
+    color:#cbd5e1;
+    margin-bottom:40px;
+}
 
+.box{
+    background:#111827;
+    width:70%;
+    margin:auto;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    font-size:24px;
+    padding:12px;
+    border-bottom:1px solid #334155;
+}
+
+.footer{
+    margin-top:40px;
+    color:#94a3b8;
+    font-size:18px;
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="contenedor">
+<div class="container">
 
-    <h1>Proyecto Final DevOps</h1>
+    <div class="box">
 
-    <h2>Sistemas Operativosñ II</h2>
+        <h1>Proyecto DevOps</h1>
 
-    <p>Infraestructura desplegada en AWS EC2</p>
+        <h2>Infraestructura y monitoreo en AWS</h2>
 
-    <p>Docker funcionando correctamente</p>
+        <ul>
+            <li> AWS EC2</li>
+            <li> Docker Containers</li>
+            <li> Nginx Web Server</li>
+            <li> Prometheus Monitor</li>
+            <li> Grafana Dashboard</li>
+        </ul>
 
-    <p>Servidor Ubuntu en la nube</p>
+        <div class="footer">
+            Servidor desplegado exitosamente en la nube
+        </div>
 
-    <p>Pipeline CI/CD funcionando correctamente</p>
+    </div>
 
 </div>
 
 </body>
-
 </html>
-nano index.htmlnano index.html
